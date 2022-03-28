@@ -15,3 +15,14 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+/web/bundles/
+/app/bootstrap.php.cache
+/app/cache/*
+/app/config/parameters.yml
+/app/logs/*
+!.app/cache/.gitkeep
+!.app/logs/.gitkeep
+/app/phpunit.xml
+/build/
+/bin/
+/composer.phar

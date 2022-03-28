@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List de mes liens!{% endblock %}
+
+{% block body %}
+
+
+<div class="container mt-5">
+    <div class="row">
+        <section class="col-lg-6 col-md-12 mx-lg-auto" id="linkSection">
+            <a href="{{ path('app_invoice') }}" class="btn btn-success">Add invoice</a>
+            <div class="list-group">
+                {% for invoice in invoices %}
+                    <div class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{{ invoice.getInvoiceNumber() }}</h5>
+                            <small>{{ invoice.getInvoiceDate()|date('d/m/Y') }}</small>
+                        </div>
+                        <p class="float-start mb-1 fw-bold">
+                            <i class="fas fa-chart-bar"></i>
+                        </p>
+                        <div class="d-flex w-100 justify-content-between">
+                            <a class="text-danger fw-bold" target="_blank" href="/invoice">Detail</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}

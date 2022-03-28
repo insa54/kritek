@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List de mes liens!{% endblock %}
+
+{% block body %}
+
+
+<div class="container mt-5">
+    <div class="row">
+        <section class="col-lg-6 col-md-12 mx-lg-auto" id="linkSection">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1>Invoice: {{ invoice.getInvoiceNumber() }}</h1>
+                </div>
+                <div class="col-md-4">
+                    <h5>{{ invoice.getInvoiceDate()|date('d/m/Y') }}</h5>
+                </div>
+            </div>
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Description</th>
+                        <th scope="col">Quantité</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Vat Amount</th>
+                        <th scope="col">Total with Vat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for invoice in invoiceLines %}
+                        <tr>
+                            <th scope="row">{{ invoice.getDescription() }}</th>
+                            <td>{{ invoice.getQuantity() }}</td>
+                            <td>{{ invoice.getAmount() }}</td>
+                            <td>{{ invoice.getVatAmount() }}</td>
+                            <td>{{ invoice.getTotalVat() }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+{% endblock %}

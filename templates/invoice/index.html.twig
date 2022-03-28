@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add invoice{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h1>New Invoice</h1>
+        {{ form_start(invoiceForm) }}
+            {{ form_row(invoiceForm.invoice_date, {
+                label: 'Date invoice'
+            }) }}
+            {{ form_row(invoiceForm.invoice_number, {
+                label: 'Invoice number'
+            }) }}
+
+            {{ form_row(invoiceForm.customer_id, {
+                label: 'Customer'
+            }) }}
+
+            <button type="submit" class="btn btn-primary mt-2">Add</button>
+        {{ form_end(invoiceForm) }}
+    </div>
+{% endblock %}

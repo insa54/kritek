@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add invoice{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h1>New Invoice</h1>
+        {{ form_start(invoiceLineForm) }}
+            {{ form_row(invoiceLineForm.description, {
+                label: 'Description'
+            }) }}
+            {{ form_row(invoiceLineForm.quantity, {
+                label: 'Quantity'
+            }) }}
+
+            {{ form_row(invoiceLineForm.amount, {
+                label: 'Amount'
+            }) }}
+
+            {{ form_row(invoiceLineForm.vat_amount, {
+                label: 'VAT Amount'
+            }) }}
+
+            {{ form_row(invoiceLineForm.total_vat, {
+                label: 'Total with VAT'
+            }) }}
+
+            {{ form_row(invoiceLineForm.invoice, {
+                label: 'Customer'
+            }) }}
+
+            <button type="submit" class="btn btn-primary mt-2">Add</button>
+        {{ form_end(invoiceLineForm) }}
+    </div>
+{% endblock %}
